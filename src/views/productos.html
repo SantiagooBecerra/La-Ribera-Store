@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Personal</title>
+    <link rel="icon" href="/images/logo-pag.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">Mi E-commerce</a>
+            <button class="navbar-toggle" title="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="" class="active">Inicio</a></li>
+                <li><a href="/#offers">Productos</a></li>
+                <li><a href="/#footer-section">Contacto</a></li>
+                <li><a href="/#footer-section">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+
+    <main>
+        <section>
+            <h1 id="title">Productos Principales</h1>
+            <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/img-cafetera-moulinex.jpg" alt="Cafetera" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$6.770</p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description">Cafetera Moulinex</h4>
+                    </div>
+                </article>
+        </section>
+    </main>
+
+</body>
+</html>

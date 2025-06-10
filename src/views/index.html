@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecommerce Personal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo-pag.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">Mi E-commerce</a>
+            <button class="navbar-toggle" title="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="" class="active">Inicio</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="#footer-section">Contacto</a></li>
+                <li><a href="#footer-section">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+
+    <section class="banner">
+        <img src="/images/banner.jpg" alt="Promoción principal">
+    </section>
+    <main>
+        <section class="last-visit">
+            <h3>Basado en tu última visita</h3>
+            <div class="products">
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/img-cafetera-moulinex.jpg" alt="Cafetera" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$6.770</p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description">Cafetera Moulinex</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/img-macbook-pro-2019.jpg" alt="MacBook" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$230.000</p>
+                        <p class="discount">20% off</p>
+                        <h4 class="description">MacBook Pro 2019</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/img-samsung-galaxy-s10.jpg" alt="Teléfono Móvil Samsung Galaxy" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$70.500</p>
+                        <p class="discount">10% off</p>
+                        <h4 class="description">Samsung Galaxy S10</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/img-tv-samsung-smart.jpg" alt="SmartTv Samsung" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$23.200</p>
+                        <p class="discount">5% off</p>
+                        <h4 class="description">SmartTv Samsung 43"</h4>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="offers">
+            <h3>Ofertas</h3>
+            <div class="products">
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/lavarropas2000.jpg" alt="lavarropas" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$90.000</p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description">Lavarropas SP 2000</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/relojcasio.jpg" alt="reloj" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$250.000</p>
+                        <p class="discount">20% off</p>
+                        <h4 class="description">Reloj Casio plata</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/iphone15promax.jpg" alt="Teléfono Móvil Samsung Galaxy" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$700.500</p>
+                        <p class="discount">10% off</p>
+                        <h4 class="description">Iphone 15 Pro Max</h4>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/termostanley.jpg" alt="SmartTv Samsung" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$30.200</p>
+                        <p class="discount">5% off</p>
+                        <h4 class="description">Termo Stanley</h4>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section" id="footer-section">
+                <h4>Acerca de :</h4>
+                <ul>
+                    <li><a href="#">Pagá con tarjeta o en efectivo</a></li>
+                    <li><a href="#">Envío gratis desde $ 2.500</a></li>
+                    <li><a href="#">Copyright © 1999-2022 MercadoLiebre S.R.L.</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Cómo comprar</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Contáctanos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes sociales</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Mercado Libre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Personal</title>
+    <link rel="icon" href="/images/logo-pag.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body{
+            background-color: rgb(168, 242, 255);
+        }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .price {
+      color: green;
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .buttons button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .buy {
+      background-color: #2962ff;
+      color: white;
+    }
+
+    .buy:hover {
+      background-color: #0039cb;
+    }
+
+    .cart {
+      background-color: #e0e0e0;
+    }
+
+    .cart:hover {
+      background-color: #c2c2c2;
+    }
+
+    .specs {
+      margin-top: 30px;
+    }
+
+    .specs h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .specs ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">Mi E-commerce</a>
+            <button class="navbar-toggle" title="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="" class="active">Inicio</a></li>
+                <li><a href="/#offers">Productos</a></li>
+                <li><a href="/#footer-section">Contacto</a></li>
+                <li><a href="/#footer-section">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
+  <main>
+    <section>
+        <div class="container">
+    <img src="/images/img-cafetera-moulinex.jpg" alt="Notebook HP 255 G10" class="product-image">
+
+    <div class="title">Cafetera Nescafe Moulinex Dolce Gusto Mini Me Roja </div>
+
+    <div class="price">$1.093.999</div>
+
+    <div class="buttons">
+      <button class="buy">Comprar ahora</button>
+      <button class="cart">Agregar al carrito</button>
+    </div>
+
+    <div class="specs">
+      <h2>Especificaciones</h2>
+      <ul>
+        <li>Procesador: AMD Ryzen 7 7730U</li>
+        <li>Memoria RAM: 16 GB</li>
+        <li>Almacenamiento: 512 GB SSD</li>
+        <li>Pantalla: 15,6" FHD</li>
+        <li>Sistema Operativo: Windows 11 Home</li>
+        <li>Color: Gris oscuro</li>
+      </ul>
+    </div>
+  </div>
+
+    </section>
+  </main>
+  </body>
+</html>
