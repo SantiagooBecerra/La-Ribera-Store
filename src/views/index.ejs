@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La Ribera Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include ('./partials/header.ejs'); %>
+    
+
+    <section class="banner">
+        <img src="/images/banner.jpg" alt="Promoción principal">
+    </section>
+    <main>
+        <section class="last-visit">
+            <h3>Basado en tu última visita</h3>
+            <div class="products">
+             <% let contador = 0; %>
+             <% data.forEach((elemento,index)=>{  %>
+                <% if (contador < 4) { %>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/<%= elemento.img %>" alt="Cafetera" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$<%= elemento.precio %></p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description"><%= elemento.nombre %></h4>
+                    </div>
+                </article>
+                <% contador++; %>
+               <% } %>
+             <% }); %>
+               
+            </div>
+        </section>
+        <section id="offers">
+            <h3>Ofertas</h3>
+              <div class="products">
+             <% data.forEach((elemento,index)=>{  %>
+                <% if (index >= 4 && index < 8) { %>
+                <article class="product-card">
+                    <span class="border top"></span>
+                    <span class="border right"></span>
+                    <span class="border bottom"></span>
+                    <span class="border left"></span>
+                    <div class="image-container">
+                        <img src="/images/<%= elemento.img %>" alt="Cafetera" class="product_img">
+                        <a href="#contacto" class="more-info-btn">Más info</a>
+                    </div>
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price">$<%= elemento.precio %></p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description"><%= elemento.nombre %></h4>
+                    </div>
+                </article>
+               <% } %>
+             <% }); %>
+        </div>
+        </section>
+    </main>
+<%- include ('./partials/footer.ejs'); %>
+
+</body>
+</html>

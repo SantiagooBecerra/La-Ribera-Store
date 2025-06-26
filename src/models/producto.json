@@ -1,0 +1,56 @@
+[
+    {
+       "id":1,
+       "nombre":"Cafetera",
+       "precio":"100.000",
+       "img": "img-cafetera-moulinex.jpg"  
+    }
+
+    ,
+    {
+       "id":2,
+       "nombre":"Mackbook Pro",
+       "precio":"1.500.000",
+       "img": "img-macbook-pro-2019.jpg"  
+    },
+    {
+       "id":3,
+       "nombre":"Samsung Galaxy S10",
+       "precio":"1.000.000",
+       "img": "img-samsung-galaxy-s10.jpg"  
+    },
+    {
+       "id":4,
+       "nombre":"SmartTv Samsung",
+       "precio":"500.000",
+       "img": "img-tv-samsung-smart.jpg"  
+    }
+    ,
+    {
+       "id":5,
+       "nombre":"Lavarropas SP 2000",
+       "precio":"500.000",
+       "img": "lavarropas2000.jpg"  
+    }
+   ,
+   {
+      "id":6,
+      "nombre":"Reloj Casio plata",
+      "precio":"80.000",
+      "img": "relojcasio.jpg"
+   }
+   ,
+   {
+      "id":7,
+      "nombre":"Iphone 15 Pro Max",
+      "precio":"1.000.000",
+      "img": "iphone15promax.jpg"
+   }
+   ,
+   {
+      "id":8,
+      "nombre":"Termo Stanley",
+      "precio":"12.000",
+      "img": "termostanley.jpg"
+   }
+]

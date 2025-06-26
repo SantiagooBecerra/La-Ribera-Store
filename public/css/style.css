@@ -35,12 +35,22 @@ body {
     max-width: 1600px;
 }
 
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
 .navbar-logo {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
 }
 
 .navbar-container .navbar-menu {

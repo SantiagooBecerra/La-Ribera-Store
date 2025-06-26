@@ -1,0 +1,28 @@
+<nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo-container">
+                <img src="/images/logo.png" alt="Logo" class="navbar-logo-img">
+                <a href="/" class="navbar-logo">La Ribera Store</a>
+            </div>
+            <button class="navbar-toggle" title="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="" class="active">Inicio</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="#footer-section">Registrarse</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarToggle.classList.toggle('active');
+            navbarMenu.classList.toggle('active');
+        });
+    </script>
