@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+<%- include ('./partials/header.ejs'); %>
+<section>
+    <h2 style="text-align: center; margin-top: 20px; font-size: 2.7rem;">Publicá tu producto o servicio</h2>
+    <div class="contact-info">
+        <form action="/agregar" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="form-label" for="tipo"><i class="fas fa-list mr-2"></i> Tipo *</label>
+                <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="producto">Producto</option>
+                    <option value="servicio">Servicio</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="nombre"><i class="fas fa-user mr-2"></i> Nombre *</label>
+                <input class="form-control" type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="precio"><i class="fas fa-dollar-sign mr-2"></i> Precio *</label>
+                <input class="form-control" type="text" id="precio" name="precio" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="img"><i class="fas fa-image mr-2"></i> Imagen *</label>
+                <input class="form-control" type="file" id="img" name="img" accept="image/*" required>
+            </div>
+            <div class="text-center mt-4 mb-5">
+                <button class="btn btn-success btn-icon" type="submit"><i class="fas fa-paper-plane" style="color: white;"></i> ENVIAR</button>
+                <button class="btn btn-danger btn-icon" type="reset"><i class="fas fa-trash" style="color: white;"></i> CANCELAR</button>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include ('./partials/footer.ejs'); %>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

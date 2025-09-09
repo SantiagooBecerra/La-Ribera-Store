@@ -14,67 +14,67 @@ body {
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 100%;
-    position: sticky;
-    top: 0;
-    background-color: #162530;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    display: flex; /* Usa Flexbox para organizar los elementos del navbar en una fila */
+    align-items: center; /* Centra verticalmente los elementos dentro del navbar */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    height: 80px; /* Altura fija del navbar */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    position: sticky; /* Hace que el navbar quede fijo arriba al hacer scroll */
+    top: 0; /* Lo fija en la parte superior */
+    background-color: #162530; /* Color de fondo oscuro */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Sombra debajo para dar profundidad */
+    z-index: 999; /* Se asegura de que el navbar esté por encima de otros elementos */
 }
 
 .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 2rem;
-    max-width: 1600px;
+    display: flex; /* Flexbox para organizar el logo y el menú en una fila */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* El logo queda a la izquierda y el menú a la derecha */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 0 2rem; /* Espacio a los costados */
+    max-width: 1600px; /* Limita el ancho máximo para que no se estire demasiado en pantallas grandes */
 }
 
 .navbar-logo-container {
-  display: flex;
-  align-items: center;
+  display: flex; /* Flexbox para alinear el logo y el texto juntos */
+  align-items: center; /* Centra verticalmente el logo y el texto */
 }
 
 .navbar-logo-img {
-  height: 40px;
-  width: auto;
-  margin-right: 10px;
+  height: 40px; /* Altura fija para el logo */
+  width: auto; /* El ancho se ajusta automáticamente */
+  margin-right: 10px; /* Espacio entre el logo y el texto */
 }
 
 .navbar-logo {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
+  font-size: 2rem; /* Tamaño grande para el nombre de la tienda */
+  font-weight: 600; /* Texto en negrita */
+  color: #fff; /* Color blanco */
+  text-decoration: none; /* Sin subrayado */
 }
 
 .navbar-container .navbar-menu {
-    display: flex;
-    text-align: center;
-    gap: 1.5rem;
-    list-style: none;
+    display: flex; /* Flexbox para organizar los enlaces del menú en una fila */
+    text-align: center; /* Centra el texto de los enlaces */
+    gap: 1.5rem; /* Espacio entre cada enlace */
+    list-style: none; /* Quita los puntos de la lista */
 }
 
 .navbar-container .navbar-menu li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.3rem;
-    font-weight: 500;
-    padding: 3px 20px;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    transition: all 0.7s ease;
-    white-space: nowrap;
+    text-decoration: none; /* Sin subrayado */
+    color: #fff; /* Color blanco para los enlaces */
+    font-size: 1.3rem; /* Tamaño de letra más grande */
+    font-weight: 500; /* Un poco en negrita */
+    padding: 3px 20px; /* Espacio interno (modelo de caja) para que el área clickeable sea más grande */
+    border-radius: 20px; /* Bordes redondeados */
+    border: 2px solid transparent; /* Borde invisible, pero permite animaciones suaves */
+    transition: all 0.7s ease; /* Hace que los cambios de color y borde sean suaves */
+    white-space: nowrap; /* Evita que el texto se corte en varias líneas */
 }
 
 .navbar-container .navbar-menu li a:hover {
-    color: #62edff;
-    transform: all 0.3s ease;
+    color: #62edff; /* Cambia el color del texto al pasar el mouse */
+    transform: all 0.3s ease; /* (Nota: esta línea tiene un pequeño error, debería ser solo 'transition') */
 }
 .navbar-toggle {
     display: none;
@@ -496,67 +496,311 @@ body {
 
 /* Estilo básico para el footer */
 footer {
-    background-color: #333; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    padding: 20px 0; /* Espaciado vertical */
-    text-align: center; /* Centrado de contenido */
+    background-color: #333; /* Fondo oscuro para diferenciar el pie de página */
+    color: #fff; /* Texto en blanco para buen contraste */
+    padding: 20px 0; /* Espacio arriba y abajo dentro del footer */
+    text-align: center; /* Centra el texto dentro del footer */
 }
 
-/* Contenedor del footer organizado en columnas */
+/* Contenedor del footer organizado en columnas usando Flexbox */
 .footer-container {
-    display: flex; /* Usamos flexbox para organizar las columnas */
-    justify-content: space-between; /* Espaciado uniforme entre columnas */
-    flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas pequeñas */
-    max-width: 1200px; /* Ancho máximo del footer */
+    display: flex; /* Activa Flexbox para organizar las secciones en fila */
+    justify-content: space-between; /* Espacia las columnas uniformemente */
+    flex-wrap: wrap; /* Permite que las columnas bajen si no entran en la pantalla */
+    max-width: 1200px; /* Limita el ancho máximo del footer */
     margin: 0 auto; /* Centra el footer horizontalmente */
-    padding: 0 20px; /* Espaciado horizontal */
+    padding: 0 20px; /* Espacio a los costados */
 }
 
-/* Estilo para las secciones del footer */
+/* Cada sección del footer es un bloque flexible */
 .footer-section {
-    flex: 1; /* Cada columna ocupa el mismo espacio */
-    min-width: 200px; /* Ancho mínimo para cada columna */
-    margin-bottom: 20px; /* Espaciado entre las secciones */
+    flex: 1; /* Cada sección ocupa el mismo espacio disponible */
+    min-width: 200px; /* No se achican demasiado en pantallas chicas */
+    margin-bottom: 20px; /* Espacio debajo de cada sección */
 }
 
-/* Estilo de los títulos dentro del footer */
+/* Títulos dentro del footer */
 .footer-section h4 {
     font-size: 18px; /* Títulos más grandes */
     font-weight: bold; /* Títulos en negrita */
-    margin-bottom: 10px; /* Separación entre título y lista */
+    margin-bottom: 10px; /* Espacio debajo del título */
 }
+
+/* Listas dentro del footer: elementos de bloque sin viñetas */
 .footer-section ul {
-    list-style: none; /* Sin viñetas */
-    padding: 0; /* Sin padding */
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el espacio interno */
 }
-/* Estilo de los enlaces dentro del footer */
+
+/* Enlaces dentro del footer: elementos de línea convertidos en bloque */
 .footer-section a {
     color: #fff; /* Enlaces en blanco */
     text-decoration: none; /* Sin subrayado */
-    display: block; /* Para que ocupe toda la línea */
-    margin-bottom: 8px; /* Espaciado entre los enlaces */
+    display: block; /* Hace que cada enlace ocupe toda la línea (bloque) */
+    margin-bottom: 8px; /* Espacio entre enlaces */
 }
 
-/* Estilo de los enlaces al pasar el mouse */
+/* Efecto al pasar el mouse por los enlaces */
 .footer-section a:hover {
-    text-decoration: underline; /* Subrayado al pasar el mouse */
+    text-decoration: underline; /* Subraya el enlace al pasar el mouse */
 }
 
-/* Estilo para el texto de copyright */
+/* Texto de copyright: elemento de bloque pequeño y gris */
 .copyright {
-    font-size: 14px; /* Texto pequeño */
-    color: #bbb; /* Gris claro para el copyright */
-    margin-top: 20px; /* Espaciado superior */
+    font-size: 14px; /* Texto más chico */
+    color: #bbb; /* Gris claro */
+    margin-top: 20px; /* Espacio arriba del copyright */
 }
 
-/* Responsive: Ajustar columnas en pantallas pequeñas */
+/* Responsive: en pantallas chicas, el footer se apila en columna */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* Cambia a una sola columna */
-        align-items: center; /* Centra las columnas */
+        flex-direction: column; /* Cambia de fila a columna */
+        align-items: center; /* Centra las secciones */
     }
 
     .footer-section {
-        text-align: center; /* Centra el texto en pantallas pequeñas */
+        text-align: center; /* Centra el texto en pantallas chicas */
     }
+}
+
+
+/*contacto*/
+/* Alinear la información de contacto verticalmente con el formulario */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    height: 100%; /* Asegura que ocupa toda la altura disponible */
+}
+
+/* Estilos para cada ítem */
+.contact-info p {
+    background-color: #e6f5e6; /* Verde claro */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para los íconos */
+.contact-info i {
+    margin-right: 10px;
+    color: #27ae60; /* Verde oscuro */
+}
+
+/* Asegurar que los enlaces sean visibles */
+.contact-info a {
+    color: #27ae60;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustar el espaciado en móviles */
+@media (max-width: 767px) {
+    .contact-info p {
+        font-size: 14px;
+    }
+}
+
+/* ==== FORMULARIO DE CONTACTO ==== */
+section .contact-info form {
+  background: #fff;
+  padding: 32px 24px 24px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+section .contact-info h2,
+section .contact-info form h2 {
+  text-align: center;
+  color: #1a4739;
+  font-size: 80px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #1a4739;
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px solid #b2bec3;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus {
+  border-color: #1a4739;
+}
+
+.text-center {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.btn-success {
+  background: #1a4739;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: #14532d;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-icon i {
+  margin-right: 5px;
+}
+
+/* Responsive para el formulario */
+@media (max-width: 500px) {
+  section .contact-info form {
+    padding: 18px 8px 12px 8px;
+    max-width: 98vw;
+  }
+}
+
+/*---------------------------------------------------------------------------------------*/
+/* Diseño tipo MercadoLibre para detalle de producto */
+.producto-detalle-ml {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 32px;
+}
+
+.producto-galeria {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.miniatura {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.miniatura.active,
+.miniatura:hover {
+  border-color: #1a4739;
+}
+
+.imagen-principal img {
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.producto-info {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: flex-start;
+}
+
+.producto-info h2 {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1a4739;
+}
+
+.producto-precio {
+  font-size: 2rem;
+  color: #14532d;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.producto-descripcion {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .producto-detalle-ml {
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  .imagen-principal img {
+    width: 90vw;
+    height: auto;
+    max-width: 350px;
+  }
 }

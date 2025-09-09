@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= servicio.nombre %> - La Ribera Store</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+    <%- include ('./partials/header.ejs'); %>
+    <main>
+        <section class="producto-detalle-ml">
+            <div class="producto-galeria">
+                <div class="imagen-principal">
+                    <img src="/images/<%= servicio.img %>" alt="<%= servicio.nombre %>">
+                </div>
+            </div>
+            <div class="producto-info">
+                <h2><%= servicio.nombre %></h2>
+                <p class="producto-precio">$ <%= servicio.precio %></p>
+                <p class="producto-descripcion">
+                    <i class="fas fa-info-circle"></i> Aquí podés agregar más detalles del servicio.
+                </p>
+                <button class="btn btn-success"><i class="fas fa-calendar-check"></i> Solicitar servicio</button>
+            </div>
+        </section>
+    </main>
+    <%- include ('./partials/footer.ejs'); %>
+</body>
+</html>

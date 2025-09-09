@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACTO</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+<%- include ('./partials/header.ejs'); %>
+<section>
+    <h2 style="text-align: center; margin-top: 20px; font-size: 2.7rem;">Formulario de contacto</h2>
+    <div class="contact-info">
+        <form action="/form" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="nombre"><i class="fas fa-user mr-2"></i> Nombre *</label>
+                <input class="form-control" type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email"><i class="fas fa-envelope mr-2"></i> Correo Electrónico *</label>
+                <input class="form-control" type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="mensaje"><i class="fas fa-comment mr-2"></i> Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="8" required></textarea>
+            </div>
+
+            <div class="text-center mt-4 mb-5">
+                <button class="btn btn-success btn-icon" type="submit"><i class="fas fa-paper-plane" style="color: white;"></i> ENVIAR</button>
+                <button class="btn btn-danger btn-icon" type="reset"><i class="fas fa-trash" style="color: white;"></i> CANCELAR</button>
+            </div>
+        </form>
+    </div>
+</section>
+<%- include ('./partials/footer.ejs'); %>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

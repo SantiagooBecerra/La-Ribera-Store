@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Barberia",
+    "precio": "8.000",
+    "img": "barberia.jpeg"
+  },
+  {
+    "id": 2,
+    "nombre": "Mantenimiento de PC",
+    "precio": "20.000",
+    "img": "mantenimiento-pc.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Lavanderia",
+    "precio": "5.000",
+    "img": "lavanderia.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Servicio de Plomeria",
+    "precio": "20.000",
+    "img": "plomeria.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Limpieza",
+    "precio": "4000",
+    "img": "1757287457430-limpieza.jpg"
+  }
+]

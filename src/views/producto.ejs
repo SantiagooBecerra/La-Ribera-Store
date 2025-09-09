@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= producto.nombre %> - La Ribera Store</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+    <%- include ('./partials/header.ejs'); %>
+    <main>
+        <section class="producto-detalle-ml">
+            <div class="producto-galeria">
+                <div class="miniaturas">
+                    <img src="/images/<%= producto.img %>" alt="Miniatura" class="miniatura active">
+                </div>
+                <div class="imagen-principal">
+                    <img src="/images/<%= producto.img %>" alt="<%= producto.nombre %>">
+                </div>
+            </div>
+            <div class="producto-info">
+                <h2> <%= producto.nombre %></h2>
+                <p class="producto-precio"> $ <%= producto.precio %></p>
+                <p class="producto-descripcion">
+                    <i class="fas fa-info-circle"></i> Aquí podés agregar más detalles del producto, especificaciones, color, etc.
+                </p>
+                <button class="btn btn-success"><i class="fas fa-shopping-cart"></i> Comprar ahora</button>
+                <button class="btn btn-danger"><i class="fas fa-heart"></i> Agregar al carrito</button>
+            </div>
+        </section>
+    </main>
+    <%- include ('./partials/footer.ejs'); %>
+
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

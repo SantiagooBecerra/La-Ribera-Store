@@ -18,7 +18,7 @@
     </section>
     <main>
         <section class="last-visit">
-            <h3>Basado en tu última visita</h3>
+            <h3>Productos</h3>
             <div class="products">
              <% let contador = 0; %>
              <% data.forEach((elemento,index)=>{  %>
@@ -29,9 +29,9 @@
                     <span class="border bottom"></span>
                     <span class="border left"></span>
                     <div class="image-container">
-                        <img src="/images/<%= elemento.img %>" alt="Cafetera" class="product_img">
-                        <a href="#contacto" class="more-info-btn">Más info</a>
-                    </div>
+                        <img src="/images/<%= elemento.img %>" alt="servicio" class="product_img">
+                        <!-- <a href="#contacto" class="more-info-btn">Más info</a> -->
+                        <a href="/producto/<%= elemento.id %>" class="more-info-btn">Más info</a>                           </div>
                     <div class="main-article">
                         <i class="fas fa-truck"></i>
                         <p class="price">$<%= elemento.precio %></p>
@@ -46,18 +46,20 @@
             </div>
         </section>
         <section id="offers">
-            <h3>Ofertas</h3>
+            <h3>Servicios</h3>
               <div class="products">
-             <% data.forEach((elemento,index)=>{  %>
-                <% if (index >= 4 && index < 8) { %>
+            <% let contadoor = 0; %>
+             <% dataa.forEach((elemento,index)=>{  %>
+                <% if (contadoor < 4) { %>
                 <article class="product-card">
                     <span class="border top"></span>
                     <span class="border right"></span>
                     <span class="border bottom"></span>
                     <span class="border left"></span>
                     <div class="image-container">
-                        <img src="/images/<%= elemento.img %>" alt="Cafetera" class="product_img">
-                        <a href="#contacto" class="more-info-btn">Más info</a>
+                        <img src="/images/<%= elemento.img %>" alt="servicio" class="product_img">
+                        <!-- <a href="#contacto" class="more-info-btn">Más info</a> -->
+                        <a href="/servicio/<%= elemento.id %>" class="more-info-btn">Más info</a>
                     </div>
                     <div class="main-article">
                         <i class="fas fa-truck"></i>
@@ -66,7 +68,10 @@
                         <h4 class="description"><%= elemento.nombre %></h4>
                     </div>
                 </article>
+                <% contadoor++; %>
                <% } %>
+                 
+               
              <% }); %>
         </div>
         </section>
