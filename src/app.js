@@ -22,6 +22,25 @@ app.set('views', path.join(__dirname, 'views'));
 // Permite leer datos de formularios
 app.use(express.urlencoded({ extended: true }));
 
+// Trae la herramienta express-session para manejar sesiones
+const session = require('express-session');
+
+// Configura la herramienta express-session
+app.use(session({
+  secret: 'cambiame_por_una_clave_segura',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false } // en producción usar secure: true y https
+}));
+
+// Exponer usuario y mensaje (flash simple) a todas las vistas
+app.use((req, res, next) => {
+  res.locals.user = req.session ? req.session.user : null;
+  res.locals.message = req.session ? req.session.message : null;
+  delete req.session?.message;
+  next();
+});
+
 // Le dice al servidor que use las rutas que definimos
 app.use('/', rutasMain);
 

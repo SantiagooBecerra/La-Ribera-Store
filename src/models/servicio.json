@@ -28,5 +28,11 @@
     "nombre": "Limpieza",
     "precio": "4000",
     "img": "1757287457430-limpieza.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "ventas",
+    "precio": "10000",
+    "img": "1757437073761-casio4.png"
   }
 ]

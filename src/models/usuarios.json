@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nombre": "Santiago Becerra",
+    "email": "santiagocbecerra@sanluis.edu.ar",
+    "password": "OnetwothreeSanti"
+  },
+  {
+    "id": 2,
+    "nombre": "Santitiss",
+    "email": "santi.charly.becerra@gmail.com",
+    "password": "santetas"
+  }
+]

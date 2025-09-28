@@ -792,6 +792,41 @@ section .contact-info form h2 {
   margin-bottom: 8px;
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+/* 4 columnas en PC */
+.product-card {
+  width: 22%; /* Aproximadamente 4 por fila con gap */
+  min-width: 220px;
+  max-width: 260px;
+}
+
+/* 2 columnas en tablet */
+@media (max-width: 1100px) {
+  .product-card {
+    width: 45%;
+    min-width: 200px;
+    max-width: 400px;
+  }
+}
+
+/* 1 columna en celular */
+@media (max-width: 700px) {
+  .products {
+    gap: 16px;
+  }
+  .product-card {
+    width: 95vw;
+    min-width: 0;
+    max-width: 98vw;
+  }
+}
+
 @media (max-width: 900px) {
   .producto-detalle-ml {
     flex-direction: column;
@@ -802,5 +837,103 @@ section .contact-info form h2 {
     width: 90vw;
     height: auto;
     max-width: 350px;
+  }
+}
+
+/* Estilo específico para el link del navbar (lado derecho) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-right .nav-user {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: transparent;
+  white-space: nowrap;
+}
+
+/* Link de acceso / cerrar sesión */
+.nav-right .nav-link {
+  display: inline-block;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 160ms ease, color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Hover / foco */
+.nav-right .nav-link:hover,
+.nav-right .nav-link:focus {
+  background: #62edff;
+  color: #062a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* Overrides para comportamiento específico de los links en el navbar.
+   Pegar al final del archivo para que tenga prioridad sobre reglas anteriores. */
+
+/* Estilo base para los links diferenciados */
+.nav-right .auth-link {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 8px 14px;
+  transition: color 150ms ease, outline 120ms ease, transform 120ms ease;
+  box-shadow: none;
+}
+
+/* Al pasar el mouse sobre "Iniciar sesión / Registrarse" --> no relleno,
+   en vez de eso se dibuja un contorno cuadrado (bordes menos redondeados) */
+.nav-right .auth-link:hover,
+.nav-right .auth-link:focus {
+  background: transparent !important;
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+  outline: 2px solid #62edff;   /* contorno visible */
+  border-radius: 4px;          /* esquinas más cuadradas al hacer hover */
+  text-decoration: none;
+}
+
+/* Estilo por defecto para "Cerrar sesión": texto en rojo (visible siempre) */
+.nav-right .logout-link {
+  background: transparent;
+  color: #e63946; /* rojo fuerte */
+  font-weight: 700;
+  border: 1px solid transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: color 120ms ease, background 120ms ease;
+}
+
+/* Hover de "Cerrar sesión": intensifica el rojo, sin relleno dominante */
+.nav-right .logout-link:hover,
+.nav-right .logout-link:focus {
+  color: #b71c1c;
+  background: rgba(230,57,70,0.06);
+  border-color: rgba(230,57,70,0.12);
+  transform: translateY(-1px);
+}
+
+/* Ajustes móviles: conservar legibilidad */
+@media (max-width: 880px) {
+  .nav-right .nav-user { display: none; }
+  .nav-right .auth-link,
+  .nav-right .logout-link {
+    padding: 10px 12px;
+    font-size: 0.95rem;
   }
 }

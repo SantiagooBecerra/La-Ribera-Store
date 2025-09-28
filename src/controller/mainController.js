@@ -7,7 +7,31 @@ const fs = require('fs');
 // Importa la lista de productos desde el archivo producto.json
 const data = require('../models/producto.json');
 
+// Importa el archivo servicio.json y lo guarda en la constante 'dataa'.
+// Así puedes acceder a la lista de servicios desde cualquier parte del controlador.
 const dataa = require('../models/servicio.json');
+
+// Define la ruta absoluta al archivo usuarios.json usando path.join y __dirname.
+// Esto asegura que siempre se use la ruta correcta, sin importar desde dónde se ejecute el script.
+const rutaUsuarios = path.join(__dirname, '../models/usuarios.json');
+
+// Función para leer la lista de usuarios desde el archivo usuarios.json
+function leerUsuarios() {
+  // Si el archivo no existe, retorna un array vacío (no hay usuarios registrados aún)
+  if (!fs.existsSync(rutaUsuarios)) return [];
+  // Lee el contenido del archivo como texto (utf-8). Si está vacío, usa '[]' (array vacío)
+  const contenido = fs.readFileSync(rutaUsuarios, 'utf-8') || '[]';
+  // Intenta convertir el texto a un array de objetos usando JSON.parse
+  // Si hay un error (por ejemplo, el archivo está corrupto), retorna un array vacío
+  try { return JSON.parse(contenido); } catch { return []; }
+};
+
+// Función para guardar la lista de usuarios en el archivo usuarios.json
+function guardarUsuarios(usuarios) {
+  // Convierte el array de usuarios a texto JSON, con formato bonito (2 espacios de indentación)
+  // y lo escribe en el archivo usuarios.json, reemplazando el contenido anterior
+  fs.writeFileSync(rutaUsuarios, JSON.stringify(usuarios, null, 2), 'utf-8');
+}
 
 // Crea un objeto llamado 'controller' que guarda las funciones para responder a las rutas
 const controller = {
@@ -130,8 +154,97 @@ const controller = {
             console.error('Error al agregar item:', error);
             res.status(500).send('Ocurrió un error al guardar el item.');
         }
-    }
-}
+    },
+
+    // Renderiza la página de login/registro
+    login: (req, res) => {
+      // Renderiza la vista 'login' y le pasa 'error' como undefined (sin error al cargar la página)
+      res.render('login', { error: undefined });
+    },
+
+    // Procesa inicio de sesión: valida credenciales y crea sesión
+    processLogin: (req, res) => {
+      // Extrae email y password enviados desde el formulario
+      const { email, password } = req.body;
+      // Si falta email o password, muestra error en la vista de login
+      if (!email || !password) {
+        return res.status(400).render('login', { error: 'Email y contraseña son obligatorios' });
+      }
+
+      // Lee la lista de usuarios desde el archivo usuarios.json
+      const usuarios = leerUsuarios();
+      // Busca un usuario cuyo email coincida (ignorando mayúsculas/minúsculas y espacios)
+      const user = usuarios.find(u => String(u.email || '').trim().toLowerCase() === String(email).trim().toLowerCase());
+
+      // Si no existe el usuario o la contraseña no coincide, muestra error
+      if (!user || String(user.password || '') !== String(password)) {
+        return res.status(401).render('login', { error: 'Credenciales inválidas' });
+      }
+
+      // Si existe la sesión, guarda los datos del usuario en la sesión y un mensaje de bienvenida
+      if (req.session) {
+        req.session.user = { id: user.id, nombre: user.nombre, email: user.email };
+        req.session.message = `Se inició sesión correctamente. Bienvenido ${user.nombre}`;
+      }
+
+      // Redirige al usuario a la página principal
+      return res.redirect('/');
+    },
+
+    // Registra un nuevo usuario, agrega id y guarda en usuarios.json
+    register: (req, res) => {
+        try {
+            // Extrae nombre, email y password del formulario
+            const { nombre, email, password } = req.body;
+            // Si falta algún campo, muestra error en la vista de login
+            if (!nombre || !email || !password) {
+                return res.status(400).render('login', { error: 'Todos los campos son obligatorios' });
+            }
+
+            // Lee los usuarios existentes
+            const usuarios = leerUsuarios();
+            // Limpia el email para comparar correctamente
+            const emailClean = String(email).trim().toLowerCase();
+
+            // Si ya existe un usuario con ese email, muestra error
+            if (usuarios.find(u => String(u.email || '').trim().toLowerCase() === emailClean)) {
+                return res.status(409).render('login', { error: 'El email ya está registrado' });
+            }
+
+            // Genera un nuevo id para el usuario
+            const newId = usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id || 0)) + 1 : 1;
+            // Agrega el nuevo usuario al array
+            usuarios.push({ id: newId, nombre: String(nombre).trim(), email: emailClean, password: String(password) });
+
+            // Guarda el array actualizado en el archivo usuarios.json
+            guardarUsuarios(usuarios);
+
+            // Después de registrar, inicia sesión automáticamente y muestra mensaje de bienvenida
+            req.session.user = { id: newId, nombre: nombre.trim(), email: emailClean };
+            req.session.message = 'Registro exitoso. Bienvenido!';
+            // Redirige a la página principal
+            res.redirect('/');
+        } catch (err) {
+            // Si ocurre un error, lo muestra en consola y muestra error en la vista de login
+            console.error('Error register:', err);
+            return res.status(500).render('login', { error: 'Ocurrió un error al registrar' });
+        }
+    },
+
+    // Cierra la sesión del usuario
+    logout: (req, res) => {
+      // Si existe la sesión, la destruye (cierra sesión)
+      if (req.session) {
+        req.session.destroy(err => {
+          // Después de cerrar sesión, redirige a la página principal
+          return res.redirect('/');
+        });
+      } else {
+        // Si no hay sesión, simplemente redirige a la página principal
+        return res.redirect('/');
+      }
+    },
+};
 
 // Exporta el objeto 'controller' para que pueda ser usado en otros archivos del proyecto
 module.exports = controller;

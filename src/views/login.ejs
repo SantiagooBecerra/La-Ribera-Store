@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - La Ribera Store</title>
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <style>
+      /* Pequeños estilos inline para los tabs del formulario */
+      .auth-tabs { display:flex; gap:12px; justify-content:center; margin:20px 0; }
+      .auth-tab { padding:10px 20px; border-radius:8px; cursor:pointer; background:#f0f0f0; color:#333; }
+      .auth-tab.active { background:#1a4739; color:#fff; }
+      .auth-container { display:flex; justify-content:center; }
+      .auth-card { width: 420px; max-width:95vw; padding:28px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08); background:#fff; }
+      .small-link { font-size:0.95rem; color:#1a4739; text-decoration:none; }
+      .small-link:hover { text-decoration:underline; }
+    </style>
+</head>
+<body>
+<%- include ('./partials/header.ejs'); %>
+
+<section>
+    <h2 style="text-align: center; margin-top: 20px; font-size: 2.2rem;">Acceso</h2>
+
+    <div class="auth-tabs" role="tablist" aria-label="Auth tabs">
+        <div id="tab-login" class="auth-tab active" data-mode="login">Iniciar sesión</div>
+        <div id="tab-register" class="auth-tab" data-mode="register">Registrarse</div>
+    </div>
+
+    <div class="auth-container">
+      <div class="auth-card contact-info">
+        <% if (typeof error !== 'undefined') { %>
+            <div class="form-error" style="color:#c0392b; margin-bottom:12px; font-weight:600;">
+                <%= error %>
+            </div>
+        <% } %>
+
+        <form id="authForm" action="/login" method="POST" autocomplete="off">
+            <!-- campo oculto para indicar modo al servidor si lo necesitás -->
+            <input type="hidden" name="mode" id="mode" value="login">
+
+            <div class="form-group" id="group-nombre" style="display:none;">
+                <label class="form-label" for="nombre"><i class="fas fa-user mr-2"></i> Nombre</label>
+                <input class="form-control" type="text" id="nombre" name="nombre" >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email"><i class="fas fa-envelope mr-2"></i> Correo Electrónico *</label>
+                <input class="form-control" type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="password"><i class="fas fa-lock mr-2"></i> Contraseña *</label>
+                <input class="form-control" type="password" id="password" name="password" required>            
+            </div>
+
+            <div class="form-group" id="group-confirm" style="display:none;">
+                <label class="form-label" for="confirmPassword"><i class="fas fa-lock mr-2"></i> Confirmar contraseña *</label>
+                <input class="form-control" type="password" id="confirmPassword" name="confirmPassword" >
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px;">
+                <div>
+                  <button id="submitBtn" class="btn btn-success btn-icon" type="submit">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar sesión
+                  </button>
+                </div>
+                <div>
+                  <a id="forgotLink" class="small-link" href="/forgot">Olvidé mi contraseña</a>
+                </div>
+            </div>
+        </form>
+      </div>
+    </div>
+</section>
+
+<%- include ('./partials/footer.ejs'); %>
+
+<script>
+  // Toggle entre login y register
+  const tabLogin = document.getElementById('tab-login');
+  const tabRegister = document.getElementById('tab-register');
+  const groupNombre = document.getElementById('group-nombre');
+  const groupConfirm = document.getElementById('group-confirm');
+  const authForm = document.getElementById('authForm');
+  const modeInput = document.getElementById('mode');
+  const submitBtn = document.getElementById('submitBtn');
+  const forgotLink = document.getElementById('forgotLink');
+
+  function setMode(mode) {
+    if (mode === 'login') {
+      tabLogin.classList.add('active');
+      tabRegister.classList.remove('active');
+      groupNombre.style.display = 'none';
+      groupConfirm.style.display = 'none';
+      authForm.action = '/login';
+      modeInput.value = 'login';
+      submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Iniciar sesión';
+      forgotLink.style.display = 'inline-block';
+    } else {
+      tabRegister.classList.add('active');
+      tabLogin.classList.remove('active');
+      groupNombre.style.display = 'flex';
+      groupConfirm.style.display = 'flex';
+      authForm.action = '/register';
+      modeInput.value = 'register';
+      submitBtn.innerHTML = '<i class="fas fa-user-plus"></i> Registrarse';
+      forgotLink.style.display = 'none';
+    }
+  }
+
+  tabLogin.addEventListener('click', () => setMode('login'));
+  tabRegister.addEventListener('click', () => setMode('register'));
+
+  // Validación cliente simple: si está en register, confirmar passwords coinciden
+  authForm.addEventListener('submit', function(e){
+    if (modeInput.value === 'register') {
+      const pw = document.getElementById('password').value;
+      const pwc = document.getElementById('confirmPassword').value;
+      if (!pw || !pwc || pw !== pwc) {
+        e.preventDefault();
+        alert('Las contraseñas deben coincidir.');
+      }
+    }
+  });
+
+  // Inicializa en modo login
+  setMode('login');
+</script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
