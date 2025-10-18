@@ -13,7 +13,7 @@ const dataa = require('../models/servicio.json');
 
 // Define la ruta absoluta al archivo usuarios.json usando path.join y __dirname.
 // Esto asegura que siempre se use la ruta correcta, sin importar desde dónde se ejecute el script.
-const rutaUsuarios = path.join(__dirname, '../models/usuarios.json');
+const rutaUsuarios = path.joi7n(__dirname, '../models/usuarios.json');
 
 // Función para leer la lista de usuarios desde el archivo usuarios.json
 function leerUsuarios() {
@@ -63,7 +63,7 @@ const controller = {
         // Define la ruta donde se guardarán los mensajes en mensajes.json
         const mensajesPath = path.join(__dirname, '../models/mensajes.json');
 
-        // Si el archivo mensajes.json existe, lo lee y carga los mensajes anteriores
+        // Si el archivo mensajes.json existe, lo lee y carga loNs mensajes anteriores
         if (fs.existsSync(mensajesPath)) {
             mensajes = JSON.parse(fs.readFileSync(mensajesPath, 'utf-8'));
         }
@@ -158,8 +158,8 @@ const controller = {
 
     // Renderiza la página de login/registro
     login: (req, res) => {
-      // Renderiza la vista 'login' y le pasa 'error' como undefined (sin error al cargar la página)
-      res.render('login', { error: undefined });
+      // Renderiza la vista 'login' 
+      res.render('login');
     },
 
     // Procesa inicio de sesión: valida credenciales y crea sesión
