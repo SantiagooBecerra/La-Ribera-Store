@@ -15,19 +15,21 @@ const rutaUsuarios = path.join(__dirname, '../models/usuarios.json');
 
 // Función para leer la lista de usuarios desde el archivo usuarios.json
 function leerUsuarios() {
+
   // Si el archivo no existe, retorna un array vacío (no hay usuarios registrados aún)
   if (!fs.existsSync(rutaUsuarios)) return [];
+
   // Lee el contenido del archivo como texto (utf-8). Si está vacío, usa '[]' (array vacío)
   const contenido = fs.readFileSync(rutaUsuarios, 'utf-8') || '[]';
-  // Intenta convertir el texto a un array de objetos usando JSON.parse
-  // Si hay un error (por ejemplo, el archivo está corrupto), retorna un array vacío
+
+  // Intenta convertir el texto a un array de objetos usando JSON.parse y si hay un error, retorna un array vacío
   try { return JSON.parse(contenido); } catch { return []; }
 };
 
 // Función para guardar la lista de usuarios en el archivo usuarios.json
 function guardarUsuarios(usuarios) {
-  // Convierte el array de usuarios a texto JSON, con formato bonito (2 espacios de indentación)
-  // y lo escribe en el archivo usuarios.json, reemplazando el contenido anterior
+
+  // Convierte el array de usuarios a texto JSON y lo escribe en el archivo usuarios.json, reemplazando el contenido anterior
   fs.writeFileSync(rutaUsuarios, JSON.stringify(usuarios, null, 2), 'utf-8');
 }
 
@@ -245,7 +247,7 @@ const controller = {
           return res.redirect('/');
         });
       } else {
-        
+
         // Si no hay sesión, simplemente redirige a la página principal
         return res.redirect('/');
       }

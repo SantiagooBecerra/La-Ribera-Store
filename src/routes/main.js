@@ -34,7 +34,7 @@ router.get('/producto/:id', mainController.productoDetalle); // Detalle de produ
 router.get('/servicio/:id', mainController.servicioDetalle); // Detalle de servicio
 router.get('/ventas', mainController.ventas); // Página de ventas
 router.get('/login', mainController.login); // Página de login
-router.post('/login', mainController.processLogin);
+router.post('/login', mainController.processLogin); // Procesa login
 router.post('/register', mainController.register); // nueva ruta para registro
 router.get('/logout', mainController.logout); // cerrar sesión
 
