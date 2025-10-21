@@ -9,14 +9,73 @@
                 <li><a href="/prod&serv">Productos & Servicios</a></li>
                 <li><a href="/ventas">Vender</a></li>
                 <li><a href="/contacto">Contacto</a></li>
+                <!-- Registrarse: estará dentro del menú (se mostrará en móvil) -->
+                <li class="nav-register"><a href="/login#register">Registrarse</a></li>
             </ul>
+
+            <!-- Botón hamburguesa para móvil -->
+            <button class="navbar-toggle" aria-label="Abrir menú" aria-expanded="false" type="button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <div class="nav-right">
                 <% if (user) { %>
                     <span class="nav-user">Hola, <%= user.nombre %></span>
                     <a href="/logout" class="nav-link logout-link">Cerrar sesión</a>
                 <% } else { %>
-                    <a href="/login" class="nav-link auth-link">Iniciar sesión / Registrarse</a>
+                    <!-- En desktop sigue visible; en móvil se ocultará por CSS -->
+                    <a href="/login" class="nav-link auth-link">Iniciar sesión</a>
                 <% } %>
             </div>
         </div>
     </nav>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.navbar-toggle');
+  const menu = document.querySelector('.navbar-menu');
+  if (!toggle || !menu) return;
+
+  const setAria = (isOpen) => {
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  };
+
+  toggle.addEventListener('click', (e) => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+    setAria(toggle.classList.contains('active'));
+  });
+
+  // Cerrar cuando se hace click en un enlace del menú (UX móvil)
+  menu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      setAria(false);
+    }
+  });
+
+  // Asegurar estado coherente al cambiar tamaño de ventana
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      setAria(false);
+    }
+  });
+
+  // Cerrar si se hace click fuera del menú en móvil
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 880 &&
+        !menu.contains(e.target) &&
+        !toggle.contains(e.target)) {
+      toggle.classList.remove('active');
+      menu.classList.remove('active');
+      setAria(false);
+    }
+  });
+});
+// ...existing code...
+    </script>

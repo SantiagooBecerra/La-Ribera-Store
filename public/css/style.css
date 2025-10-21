@@ -93,77 +93,8 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* Responsive Styles */
-@media (max-width: 880px) {
-    .navbar {
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-    }
-    .navbar-container .navbar-menu li a:hover,
-    .navbar-container .navbar-menu li a.active {
-     color: #162530;
-      background: rgba(188, 212, 229, 0.8);
-      border: 2px solid #fff;
-    }
-    .navbar-container .navbar-menu {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.7rem !important;
-        position: absolute;
-        height: 100vh;
-        width: 250px;
-        top: 0;
-        right: 0;
-        padding: 5rem 1.5rem;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-        background: #16253056;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-    }
-
-    .navbar-container .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-toggle {
-        display: block;
-        z-index: 999;
-    }
-
-    .navbar-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .navbar-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .navbar-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar-container {
-        padding: 0 1rem;
-    }
-
-    .navbar-logo {
-        font-size: 1.7rem;
-    }
-
-    .navbar-container .navbar-menu li a {
-        font-size: 1.2rem;
-        padding: 3px 15px;
-    }
-
-
-}
-
-
   /*banner*/
-  .banner img {
+.banner img {
     width: 100%;
     height: auto;
     display: block;
@@ -552,18 +483,6 @@ footer {
     margin-top: 20px; /* Espacio arriba del copyright */
 }
 
-/* Responsive: en pantallas chicas, el footer se apila en columna */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column; /* Cambia de fila a columna */
-        align-items: center; /* Centra las secciones */
-    }
-
-    .footer-section {
-        text-align: center; /* Centra el texto en pantallas chicas */
-    }
-}
-
 
 /*contacto*/
 /* Alinear la información de contacto verticalmente con el formulario */
@@ -601,12 +520,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Ajustar el espaciado en móviles */
-@media (max-width: 767px) {
-    .contact-info p {
-        font-size: 14px;
-    }
-}
 
 /* ==== FORMULARIO DE CONTACTO ==== */
 section .contact-info form {
@@ -696,13 +609,7 @@ section .contact-info form h2 {
   margin-right: 5px;
 }
 
-/* Responsive para el formulario */
-@media (max-width: 500px) {
-  section .contact-info form {
-    padding: 18px 8px 12px 8px;
-    max-width: 98vw;
-  }
-}
+
 
 /*---------------------------------------------------------------------------------------*/
 /* Diseño tipo MercadoLibre para detalle de producto */
@@ -806,39 +713,6 @@ section .contact-info form h2 {
   max-width: 260px;
 }
 
-/* 2 columnas en tablet */
-@media (max-width: 1100px) {
-  .product-card {
-    width: 45%;
-    min-width: 200px;
-    max-width: 400px;
-  }
-}
-
-/* 1 columna en celular */
-@media (max-width: 700px) {
-  .products {
-    gap: 16px;
-  }
-  .product-card {
-    width: 95vw;
-    min-width: 0;
-    max-width: 98vw;
-  }
-}
-
-@media (max-width: 900px) {
-  .producto-detalle-ml {
-    flex-direction: column;
-    align-items: center;
-    padding: 18px;
-  }
-  .imagen-principal img {
-    width: 90vw;
-    height: auto;
-    max-width: 350px;
-  }
-}
 
 /* Estilo específico para el link del navbar (lado derecho) */
 .nav-right {
@@ -928,12 +802,134 @@ section .contact-info form h2 {
   transform: translateY(-1px);
 }
 
-/* Ajustes móviles: conservar legibilidad */
-@media (max-width: 880px) {
-  .nav-right .nav-user { display: none; }
-  .nav-right .auth-link,
-  .nav-right .logout-link {
-    padding: 10px 12px;
-    font-size: 0.95rem;
+/* Por defecto: ocultar el item de "Registrarse" dentro del menú (no duplicar en desktop) */
+.navbar-menu .nav-register {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .navbar-container .navbar-menu li a:hover,
+    .navbar-container .navbar-menu li a.active {
+     color: #162530;
+      background: rgba(188, 212, 229, 0.8);
+      border: 2px solid #fff;
+    }
+    .navbar-container .navbar-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.7rem !important;
+        position: absolute;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+        background: #16253056;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar-container .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar-menu .nav-register {
+    display: block;
+  }
+
+  /* ocultar el enlace de auth del lado derecho en móvil para que quede solo dentro del menú */
+  .nav-right .auth-link {
+    display: none;
+  }
+  
+  a.navbar-logo{
+    font-size: 1.5rem;
+  }
+
+  .footer-container {
+        flex-direction: column; /* Cambia de fila a columna */
+        align-items: center; /* Centra las secciones */
+    }
+
+    .footer-section {
+        text-align: center; /* Centra el texto en pantallas chicas */
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+      .products {
+    gap: 16px;
+  }
+  .product-card {
+    width: 95vw;
+    min-width: 0;
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 480px) {
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.7rem;
+    }
+
+    .navbar-container .navbar-menu li a {
+        font-size: 1.2rem;
+        padding: 3px 15px;
+    }
+
+      section .contact-info form {
+    padding: 18px 8px 12px 8px;
+    max-width: 98vw;
+  }
+ }
+
+/* 2 columnas en tablet */
+@media (max-width: 1000px) {
+  .product-card {
+    width: 45%;
+    min-width: 200px;
+    max-width: 400px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .producto-detalle-ml {
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  .imagen-principal img {
+    width: 90vw;
+    height: auto;
+    max-width: 350px;
   }
 }

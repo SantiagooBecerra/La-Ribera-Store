@@ -8,12 +8,10 @@ const fs = require('fs');
 const data = require('../models/producto.json');
 
 // Importa el archivo servicio.json y lo guarda en la constante 'dataa'.
-// Así puedes acceder a la lista de servicios desde cualquier parte del controlador.
 const dataa = require('../models/servicio.json');
 
 // Define la ruta absoluta al archivo usuarios.json usando path.join y __dirname.
-// Esto asegura que siempre se use la ruta correcta, sin importar desde dónde se ejecute el script.
-const rutaUsuarios = path.joi7n(__dirname, '../models/usuarios.json');
+const rutaUsuarios = path.join(__dirname, '../models/usuarios.json');
 
 // Función para leer la lista de usuarios desde el archivo usuarios.json
 function leerUsuarios() {
@@ -158,14 +156,14 @@ const controller = {
 
     // Renderiza la página de login/registro
     login: (req, res) => {
-      // Renderiza la vista 'login' 
       res.render('login');
     },
 
     // Procesa inicio de sesión: valida credenciales y crea sesión
     processLogin: (req, res) => {
-      // Extrae email y password enviados desde el formulario
+
       const { email, password } = req.body;
+
       // Si falta email o password, muestra error en la vista de login
       if (!email || !password) {
         return res.status(400).render('login', { error: 'Email y contraseña son obligatorios' });
@@ -173,6 +171,7 @@ const controller = {
 
       // Lee la lista de usuarios desde el archivo usuarios.json
       const usuarios = leerUsuarios();
+
       // Busca un usuario cuyo email coincida (ignorando mayúsculas/minúsculas y espacios)
       const user = usuarios.find(u => String(u.email || '').trim().toLowerCase() === String(email).trim().toLowerCase());
 
@@ -196,13 +195,14 @@ const controller = {
         try {
             // Extrae nombre, email y password del formulario
             const { nombre, email, password } = req.body;
+
             // Si falta algún campo, muestra error en la vista de login
             if (!nombre || !email || !password) {
                 return res.status(400).render('login', { error: 'Todos los campos son obligatorios' });
             }
 
-            // Lee los usuarios existentes
             const usuarios = leerUsuarios();
+
             // Limpia el email para comparar correctamente
             const emailClean = String(email).trim().toLowerCase();
 
@@ -213,6 +213,7 @@ const controller = {
 
             // Genera un nuevo id para el usuario
             const newId = usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id || 0)) + 1 : 1;
+
             // Agrega el nuevo usuario al array
             usuarios.push({ id: newId, nombre: String(nombre).trim(), email: emailClean, password: String(password) });
 
@@ -222,24 +223,29 @@ const controller = {
             // Después de registrar, inicia sesión automáticamente y muestra mensaje de bienvenida
             req.session.user = { id: newId, nombre: nombre.trim(), email: emailClean };
             req.session.message = 'Registro exitoso. Bienvenido!';
+
             // Redirige a la página principal
             res.redirect('/');
+
         } catch (err) {
+
             // Si ocurre un error, lo muestra en consola y muestra error en la vista de login
             console.error('Error register:', err);
             return res.status(500).render('login', { error: 'Ocurrió un error al registrar' });
         }
     },
 
-    // Cierra la sesión del usuario
     logout: (req, res) => {
+        
       // Si existe la sesión, la destruye (cierra sesión)
       if (req.session) {
         req.session.destroy(err => {
+
           // Después de cerrar sesión, redirige a la página principal
           return res.redirect('/');
         });
       } else {
+        
         // Si no hay sesión, simplemente redirige a la página principal
         return res.redirect('/');
       }
