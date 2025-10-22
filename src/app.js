@@ -27,11 +27,12 @@ const session = require('express-session');
 
 // Configura la herramienta express-session
 app.use(session({
-  secret: 'cambiame_por_una_clave_segura',
+  secret: process.env.SESSION_SECRET || 'clave_por_defecto',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // en producción usar secure: true y https
+  cookie: { secure: false }
 }));
+
 
 // Exponer usuario y mensaje (flash simple) a todas las vistas
 app.use((req, res, next) => {
