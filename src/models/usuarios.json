@@ -16,5 +16,11 @@
     "nombre": "Marty",
     "email": "marti@gmail.com",
     "password": "mvpgames"
+  },
+  {
+    "id": 4,
+    "nombre": "Andrés",
+    "email": "andres@gmail.com",
+    "password": "andres123"
   }
 ]
