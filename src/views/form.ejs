@@ -14,19 +14,19 @@
     <h2 style="text-align: center; margin-top: 20px; font-size: 2.7rem;">Formulario de contacto</h2>
     <div class="contact-info">
         <form action="/form" method="POST">
-            <div class="form-group">
+            <div class="form-group input-with-icon">
+                <input class="form-control" type="text" id="nombre" name="nombre" required placeholder=" ">
                 <label class="form-label" for="nombre"><i class="fas fa-user mr-2"></i> Nombre *</label>
-                <input class="form-control" type="text" id="nombre" name="nombre" required>
             </div>
 
-            <div class="form-group">
+            <div class="form-group input-with-icon">
+                <input class="form-control" type="email" id="email" name="email" required placeholder=" ">
                 <label class="form-label" for="email"><i class="fas fa-envelope mr-2"></i> Correo Electrónico *</label>
-                <input class="form-control" type="email" id="email" name="email" required>
             </div>
 
             <div class="form-group">
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="8" required placeholder=" "></textarea>
                 <label class="form-label" for="mensaje"><i class="fas fa-comment mr-2"></i> Mensaje</label>
-                <textarea class="form-control" id="mensaje" name="mensaje" rows="8" required></textarea>
             </div>
 
             <div class="text-center mt-4 mb-5">

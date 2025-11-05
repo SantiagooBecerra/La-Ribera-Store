@@ -544,28 +544,82 @@ section .contact-info form h2 {
   font-weight: bold;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+/* Floating-label: etiqueta dentro del input al inicio, sube por completo arriba al focus/valor.
+   También efecto de borde difuminado al posicionar el cursor. */
+.form-group { position: relative; margin-bottom: 18px; }
 
-.form-label {
-  font-weight: 500;
-  color: #1a4739;
-}
-
+/* Input base */
 .form-control {
-  padding: 10px;
-  border: 1px solid #b2bec3;
-  border-radius: 6px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
+  width: 100%;
+  padding: 16px 44px 10px 12px; /* espacio a la derecha para iconos */
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.98rem;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  -webkit-appearance: none;
 }
 
+/* Label superpuesta (inicial: dentro del input, centrada verticalmente) */
+.form-label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 180ms ease;
+  color: #6b7280;
+  pointer-events: none;
+  background: transparent;
+  padding: 0 6px;
+}
+
+/* Cuando el input tiene foco o contiene texto: la label sube arriba del input */
 .form-control:focus {
-  border-color: #1a4739;
+  outline: none;
+  border-color: #14532d; /* color principal */
+  box-shadow: 0 8px 24px rgba(20,83,45,0.08); /* borde difuminado */
+}
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label,
+.form-control.filled + .form-label {
+  top: -10px;
+  transform: none;
+  font-size: 0.78rem;
+  color: #14532d;
+  background: #fff; /* para tapar el borde detrás */
+}
+
+/* Si querés que la label tenga bordes cuadrados al subir (opcional) */
+.form-control:focus + .form-label {
+  border-radius: 4px;
+}
+
+/* Input con icono (ej. ojo) */
+.input-with-icon { position: relative; }
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  color: #374151;
+  font-size: 1.05rem;
+}
+.toggle-password:focus { outline: none; }
+
+/* Efecto hover suave en el contorno del input (cuando no está enfocado) */
+.form-control:hover {
+  border-color: rgba(20,83,45,0.12);
+  box-shadow: 0 6px 18px rgba(20,83,45,0.04);
+}
+
+/* Compatibilidad móviles */
+@media (max-width:700px) {
+  .form-control { padding: 14px 40px 8px 12px; }
+  .form-label { left: 10px; }
 }
 
 .text-center {
