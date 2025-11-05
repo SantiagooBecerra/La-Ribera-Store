@@ -232,7 +232,7 @@ body {
     font-size: 24px;
     /* Ponemos el texto en negrita para que se vea más llamativo */
     font-weight: bold;
-    /* Establecemos un color oscuro para que se vea bien */
+    /* Le damos un color oscuro para que se vea bien */
     color: #333;
     /* Dejamos un margen en la parte inferior para separar el título del contenido */
     margin-bottom: 15px;
@@ -987,3 +987,51 @@ section .contact-info form h2 {
     max-width: 350px;
   }
 }
+
+/* Labels fijas para campos tipo/imagen: se muestran arriba del control y no se superponen */
+.form-group.label-top {
+  display: block;
+}
+
+.form-group.label-top .form-label {
+  position: static;       /* no absoluto, ocupa su lugar encima */
+  display: block;
+  margin-bottom: 8px;     /* separación entre label y control */
+  transform: none;
+  top: auto;
+  left: auto;
+  font-weight: 600;
+  color: #374151;
+  background: transparent;
+  padding: 0;
+  pointer-events: auto;
+}
+
+/* Asegurar que selects y file inputs tengan buen padding y no se vean cortados */
+.form-group.label-top .form-control {
+  padding: 12px 14px;
+  height: auto;
+}
+
+/* Si el input es file, ajustar la altura para que se muestre correctamente */
+.form-group.label-top input[type="file"] {
+  padding: 8px 12px;
+}
+
+/* Evitar que las reglas de floating label afecten a .label-top */
+.form-group.label-top .form-label,
+.form-group.label-top .form-control:focus + .form-label,
+.form-group.label-top .form-control:not(:placeholder-shown) + .form-label {
+  /* no aplicar transform/transition de floating */
+  transition: none;
+}
+
+/* (opcional) Ajustes visuales para consistencia */
+.form-group.label-top .form-label i {
+  margin-right: 6px;
+  color: #117a45;
+}
+
+/* animación usada como 'hook' para detectar autofill */
+@keyframes onAutoFillStart { from {} to {} }
+input:-webkit-autofill { animation-name: onAutoFillStart; }

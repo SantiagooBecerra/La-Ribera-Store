@@ -12,29 +12,35 @@
 <%- include ('./partials/header.ejs'); %>
 <section>
     <h2 style="text-align: center; margin-top: 20px; font-size: 2.7rem;">Publicá tu producto o servicio</h2>
+
     <div class="contact-info">
         <form action="/agregar" method="POST" enctype="multipart/form-data">
-            <div class="form-group select-wrapper">
+
+            <!-- Tipo: etiqueta fija arriba (no floating) -->
+            <div class="form-group label-top">
+                <label class="form-label" for="tipo"><i class="fas fa-list mr-2"></i> Tipo *</label>
                 <select class="form-control" id="tipo" name="tipo" required>
                     <option value="producto">Producto</option>
                     <option value="servicio">Servicio</option>
                 </select>
-                <label class="form-label" for="tipo">Tipo *</label>
             </div>
 
-            <div class="form-group">
+            <!-- Nombre: etiqueta flotante (label después del input) -->
+            <div class="form-group input-with-icon">
                 <input class="form-control" type="text" id="nombre" name="nombre" required placeholder=" ">
-                <label class="form-label" for="nombre">Nombre *</label>
+                <label class="form-label" for="nombre"><i class="fas fa-user mr-2"></i> Nombre *</label>
             </div>
 
-            <div class="form-group">
+            <!-- Precio: etiqueta flotante -->
+            <div class="form-group input-with-icon">
                 <input class="form-control" type="text" id="precio" name="precio" required placeholder=" ">
-                <label class="form-label" for="precio">Precio *</label>
+                <label class="form-label" for="precio"><i class="fas fa-dollar-sign mr-2"></i> Precio *</label>
             </div>
 
-            <div class="form-group">
+            <!-- Imagen: etiqueta fija arriba (no floating) -->
+            <div class="form-group label-top">
+                <label class="form-label" for="img"><i class="fas fa-image mr-2"></i> Imagen *</label>
                 <input class="form-control" type="file" id="img" name="img" accept="image/*" required>
-                <label class="form-label" for="img">Imagen *</label>
             </div>
 
             <div class="text-center mt-4 mb-5">
@@ -45,6 +51,7 @@
     </div>
 </section>
 <%- include ('./partials/footer.ejs'); %>
+
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
